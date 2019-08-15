@@ -1,0 +1,27 @@
+{
+  "name": "leetcode",
+  "version": "1.0.0",
+  "description": "不知道怎么让 leetcode 自动关联 github 就先手动提交吧<(￣3￣)>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yeyan1996/leetcode.git"
+  },
+  "keywords": [
+    "leetcode"
+  ],
+  "author": "yeyan1996",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yeyan1996/leetcode/issues"
+  },
+  "homepage": "https://github.com/yeyan1996/leetcode#readme",
+  "devDependencies": {
+    "inquirer": "^6.5.1",
+    "@types/inquirer": "^6.5.0",
+    "@types/node": "^12.7.2"
+  }
+}
