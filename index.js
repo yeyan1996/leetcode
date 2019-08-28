@@ -44,6 +44,13 @@ var inquirer_1 = __importDefault(require("inquirer"));
 var fs_1 = __importDefault(require("fs"));
 var path_1 = require("path");
 var child_process_1 = require("child_process");
+function generateSolutionString(number) {
+    var res = "";
+    for (var i = 1; i <= number; i++) {
+        res += "\n# \u89E3\u6CD5" + (i === 1 ? "" : i) + "\n      \n```javascript\n  \n```\n      \n# \u5206\u6790\n\n    ";
+    }
+    return res;
+}
 (function () { return __awaiter(_this, void 0, void 0, function () {
     var res, md, e_1;
     return __generator(this, function (_a) {
@@ -54,14 +61,18 @@ var child_process_1 = require("child_process");
                         {
                             name: "title",
                             message: "markdown title（required）",
-                            validate: function (message) {
-                                return !!message;
-                            }
+                            validate: function (message) { return !!message; }
+                        },
+                        {
+                            name: "solutionsNumber",
+                            message: "number of solution",
+                            default: 1,
+                            validate: function (message) { return Number(message) >= 1; }
                         }
                     ])];
             case 1:
                 res = _a.sent();
-                md = "\n# \u9898\u76EE\n      \n      \n# \u89E3\u6CD5\n      \n```javascript\n  console.log(123)\n```\n      \n# \u5206\u6790\n    ";
+                md = "\n# \u9898\u76EE\n      \n " + generateSolutionString(res.solutionsNumber) + "    \n\n";
                 fs_1.default.writeFileSync("./" + res.title + ".md", md);
                 child_process_1.execSync("open \"" + path_1.resolve(__dirname, res.title) + ".md\"");
                 return [3 /*break*/, 3];
