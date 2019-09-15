@@ -6,7 +6,7 @@ import {resolve} from "path";
 import {execSync} from "child_process";
 
 
-function generateSolutionString(number: number): string {
+function generateSolutionTemplate(number: number): string {
     let res = ""
     for (let i = 1; i <= number; i++) {
         res += `
@@ -43,7 +43,7 @@ function generateSolutionString(number: number): string {
         let md = `
 # 题目
       
- ${generateSolutionString(res.solutionsNumber)}    
+ ${generateSolutionTemplate(res.solutionsNumber)}    
 
 `
         fs.writeFileSync(`./${res.title}.md`, md)

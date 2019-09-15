@@ -44,7 +44,7 @@ var inquirer_1 = __importDefault(require("inquirer"));
 var fs_1 = __importDefault(require("fs"));
 var path_1 = require("path");
 var child_process_1 = require("child_process");
-function generateSolutionString(number) {
+function generateSolutionTemplate(number) {
     var res = "";
     for (var i = 1; i <= number; i++) {
         res += "\n# \u89E3\u6CD5" + (i === 1 ? "" : i) + "\n      \n```javascript\n  \n```\n      \n# \u5206\u6790\n\n    ";
@@ -72,7 +72,7 @@ function generateSolutionString(number) {
                     ])];
             case 1:
                 res = _a.sent();
-                md = "\n# \u9898\u76EE\n      \n " + generateSolutionString(res.solutionsNumber) + "    \n\n";
+                md = "\n# \u9898\u76EE\n      \n " + generateSolutionTemplate(res.solutionsNumber) + "    \n\n";
                 fs_1.default.writeFileSync("./" + res.title + ".md", md);
                 child_process_1.execSync("open \"" + path_1.resolve(__dirname, res.title) + ".md\"");
                 return [3 /*break*/, 3];
